@@ -6,6 +6,9 @@
 the repo for different algorithms
  '''
 from GasNet import *
+import matplotlib.pyplot as plt
+import numpy as np
+
 
 def KNN(X_train, y_train, X_test, y_test):
     from sklearn.neighbors import KNeighborsClassifier
@@ -136,7 +139,7 @@ def nerual_network(X_train, y_train, X_test, y_test):
     model.add(Dense(80, init='uniform', activation='relu'))
     model.add(Dense(7, init='uniform', activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['mse','mae','mape','acc'])
-    MLP=model.fit(X_train, Y_train, epochs=1000, batch_size=150000,validation_split=0.33, verbose=0)
+    MLP=model.fit(X_train, Y_train, epochs=1000, batch_size=150000,validation_split=0.33, verbose=0) # 这里实际上引入了验证集
     y_pred = model.predict(X_test)
     Flag_show = True
     if Flag_show:
@@ -165,8 +168,10 @@ def nerual_network(X_train, y_train, X_test, y_test):
         plt.show()
 
     accuracy=np.array(MLP.history['val_acc'])[-1] # 得到验证集的精度
+
     print("train accuracy : {}".format(accuracy))
     y_pred = y_pred.argmax(axis=1)
+    # accuracy = (y_pred==y_test).mean() # 测试集精度
     return y_pred, accuracy
 
 

@@ -62,7 +62,7 @@ def Read_dataset(Save_Path, algorithm_name):
     X = [np.array(data) for data in datatrain]
 
     # sample = np.concatenate([X[0], X[1]])
-    # lengths = [len(X[0]), len(X[1])]
+    # lengths xtrain[train_mask.astype(np.bool)]= [len(X[0]), len(X[1])]
     datatrain_array=np.concatenate(X) # [13910, 130]
 
 
