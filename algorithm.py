@@ -144,7 +144,7 @@ def nerual_network(X_train, y_train, X_test, y_test):
     Flag_show = True
     if Flag_show:
         # summarize history for accuracy
-        fig = plt.figure(figsize=(4,3))
+        # fig = plt.figure(figsize=(4,3))
         plt.plot(MLP.history['acc'])
         plt.plot(MLP.history['val_acc'])
         plt.title('model accuracy')
@@ -156,7 +156,7 @@ def nerual_network(X_train, y_train, X_test, y_test):
         plt.show()
 
         # summarize history for loss
-        fig = plt.figure(figsize=(4,3))
+        # fig = plt.figure(figsize=(4,3))
         plt.plot(MLP.history['mean_squared_error'])
         plt.plot(MLP.history['val_mean_squared_error'])
         plt.title('model loss')
